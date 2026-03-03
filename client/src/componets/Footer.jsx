@@ -40,7 +40,7 @@ const Footer = () => {
       Icon: Facebook,
       color: footerStyles.facebookColor,
       name: "Facebook",
-      href: "https://www.facebook.com/people/Hexagon-Digital-Services/61567156598660/",
+      href: "https://www.facebook.com/asit.mandi.520/",
     },
     {
       Icon: Twitter,
@@ -52,19 +52,13 @@ const Footer = () => {
       Icon: Instagram,
       color: footerStyles.instagramColor,
       name: "Instagram",
-      href: "http://instagram.com/hexagondigitalservices?igsh=MWp2NG1oNTlibWVnZA%3D%3D",
+      href: "https://www.instagram.com/starling6124/?hl=en",
     },
     {
       Icon: Linkedin,
       color: footerStyles.linkedinColor,
       name: "LinkedIn",
-      href: "https://www.linkedin.com/company/hexagondigtial-services/",
-    },
-    {
-      Icon: Youtube,
-      color: footerStyles.youtubeColor,
-      name: "YouTube",
-      href: "https://youtube.com/@hexagondigitalservices?si=lxEFYNCP42t6AoDJ",
+      href: "https://www.linkedin.com/in/asit-mandi/",
     },
   ];
 
