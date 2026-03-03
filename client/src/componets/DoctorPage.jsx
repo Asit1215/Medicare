@@ -12,7 +12,7 @@ import {
 import { Link } from "react-router-dom";
 
 const DoctorPage = () => {
-  const API_BASE = "http://localhost:4000";
+  const API_BASE = "https://medicare-server-mu64.onrender.com";
 
   const [allDoctors, setAllDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
