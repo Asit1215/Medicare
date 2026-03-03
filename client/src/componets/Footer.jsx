@@ -46,7 +46,7 @@ const Footer = () => {
       Icon: Twitter,
       color: footerStyles.twitterColor,
       name: "Twitter",
-      href: "https://www.linkedin.com/company/hexagondigtial-services/",
+      href: "https://www.linkedin.com/in/asit-mandi/",
     },
     {
       Icon: Instagram,
