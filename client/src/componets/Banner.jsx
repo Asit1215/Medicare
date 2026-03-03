@@ -2,7 +2,7 @@ import React from 'react'
 import { bannerStyles } from '../assets/dummyStyles'
 import { Calendar, Clock, Phone, Ribbon, ShieldUser, Star, Stethoscope, Users } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import banner from '../assets/Bannerimg.png'
+import banner from '../assets/BannerImg.png'
 const Banner = () => {
     const navigate = useNavigate()
   return (
