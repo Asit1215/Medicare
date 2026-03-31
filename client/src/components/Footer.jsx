@@ -1,6 +1,7 @@
 import React from "react";
 import { footerStyles } from "../assets/dummyStyles";
 import logo from "../assets/logo.png";
+import { motion } from "framer-motion";
 import {
   Activity,
   ArrowRight,
@@ -13,7 +14,6 @@ import {
   Send,
   Stethoscope,
   Twitter,
-  Youtube,
 } from "lucide-react";
 
 const Footer = () => {
@@ -28,11 +28,11 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: "Blood Pressure Check", href: "/services" },
-    { name: "Blood Sugar Test", href: "/services" },
-    { name: "Full Blood Count", href: "/services" },
-    { name: "X-Ray Scan", href: "/services" },
-    { name: "Blood Sugar Test", href: "/services" },
+    { name: "Cardiovascular Check", href: "/services" },
+    { name: "Pediatric Consultation", href: "/services" },
+    { name: "Dermatological Care", href: "/services" },
+    { name: "Neurological Exam", href: "/services" },
+    { name: "Diagnostic Imaging", href: "/services" },
   ];
 
   const socialLinks = [
@@ -46,7 +46,7 @@ const Footer = () => {
       Icon: Twitter,
       color: footerStyles.twitterColor,
       name: "Twitter",
-      href: "https://www.linkedin.com/in/asit-mandi/",
+      href: "https://twitter.com",
     },
     {
       Icon: Instagram,
@@ -62,6 +62,23 @@ const Footer = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
     <footer className={footerStyles.footerContainer}>
       <div className={footerStyles.floatingIcon1}>
@@ -74,9 +91,15 @@ const Footer = () => {
         <Activity className={footerStyles.activityIcon} />
       </div>
 
-      <div className={footerStyles.mainContent}>
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className={footerStyles.mainContent}
+      >
         <div className={footerStyles.gridContainer}>
-          <div className={footerStyles.companySection}>
+          <motion.div variants={itemVariants} className={footerStyles.companySection}>
             <div className={footerStyles.logoContainer}>
               <div className={footerStyles.logoWrapper}>
                 <div className={footerStyles.logoImageContainer}>
@@ -128,19 +151,17 @@ const Footer = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
+
           {/* quick links */}
-          <div className={footerStyles.linksSection}>
+          <motion.div variants={itemVariants} className={footerStyles.linksSection}>
             <h3 className={footerStyles.sectionTitle}>Quick Links</h3>
             <ul className={footerStyles.linksList}>
-              {quickLinks.map((link, index) => (
+              {quickLinks.map((link) => (
                 <li key={link.name} className={footerStyles.linkItem}>
                   <a
                     href={link.href}
                     className={footerStyles.quickLink}
-                    style={{
-                      animationDelay: `${index * 60}ms`,
-                    }}
                   >
                     <div className={footerStyles.quickLinkIconWrapper}>
                       <ArrowRight className={footerStyles.quickLinkIcon} />
@@ -150,11 +171,12 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className={footerStyles.linksSection}>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className={footerStyles.linksSection}>
             <h3 className={footerStyles.sectionTitle}>Our Services</h3>
             <ul className={footerStyles.linksList}>
-              {services.map((service, index) => (
+              {services.map((service) => (
                 <li key={service.name}>
                   <a href={service.href} className={footerStyles.serviceLink}>
                     <div className={footerStyles.serviceIcon}></div>
@@ -163,9 +185,10 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
+
           {/* Newsletter & Social */}
-          <div className={footerStyles.newsletterSection}>
+          <motion.div variants={itemVariants} className={footerStyles.newsletterSection}>
             <h3 className={footerStyles.newsletterTitle}>Stay Connected</h3>
             <p className={footerStyles.newsletterDescription}>
               Subscribe for health tips, medical updates, and wellness insights
@@ -203,27 +226,27 @@ const Footer = () => {
 
               {/* Social icons */}
               <div className={footerStyles.socialContainer}>
-                {socialLinks.map(({ Icon, color, name, href }, index) => (
-                  <a
+                {socialLinks.map(({ Icon, color, name, href }) => (
+                  <motion.a
                     key={name}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    whileHover={{ y: -5, scale: 1.1 }}
                     className={footerStyles.socialLink}
-                    style={{ animationDelay: `${index * 120}ms` }}
                   >
                     <div className={footerStyles.socialIconBackground} />
                     <Icon className={`${footerStyles.socialIcon} ${color}`} />
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className={footerStyles.bottomSection}>
+        <motion.div variants={itemVariants} className={footerStyles.bottomSection}>
             <div className={footerStyles.copyright}>
-                <span>&copy; {currentYear} MediCare Healthcare</span>
+                <span>&copy; {currentYear} MediCare Healthcare. All rights reserved.</span>
             </div>
 
             <div className={footerStyles.designerText}>
@@ -231,8 +254,8 @@ const Footer = () => {
                 <a href="https://portfolio-ten-sand-87.vercel.app/" className={footerStyles.designerLink}>
                 Mandi Digital Services</a>
             </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       <style>{footerStyles.animationStyles}</style>
     </footer>
@@ -240,3 +263,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

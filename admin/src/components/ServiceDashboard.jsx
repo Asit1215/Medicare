@@ -402,6 +402,10 @@ const ServiceDashboard = ({ services: servicesProp = null }) => {
                             src={s.image}
                             alt={s.name}
                             className="w-full h-full object-cover"
+                            onError={(e) => {
+                              e.currentTarget.onerror = null;
+                              e.currentTarget.src = "https://images.unsplash.com/photo-1576091160550-2173bdd9982a?auto=format&fit=crop&w=400&q=80";
+                            }}
                           />
                         </div>
                         <div
@@ -454,6 +458,10 @@ const ServiceDashboard = ({ services: servicesProp = null }) => {
                             src={s.image}
                             alt={s.name}
                             className=" w-full h-full object-cover"
+                            onError={(e) => {
+                              e.currentTarget.onerror = null;
+                              e.currentTarget.src = "https://images.unsplash.com/photo-1576091160550-2173bdd9982a?auto=format&fit=crop&w=400&q=80";
+                            }}
                           />
                         </div>
                         <h3
@@ -513,6 +521,10 @@ const ServiceDashboard = ({ services: servicesProp = null }) => {
                             src={s.image}
                             alt={s.name}
                             className="w-full h-full object-cover"
+                            onError={(e) => {
+                              e.currentTarget.onerror = null;
+                              e.currentTarget.src = "https://images.unsplash.com/photo-1576091160550-2173bdd9982a?auto=format&fit=crop&w=400&q=80";
+                            }}
                           />
                         </div>
 

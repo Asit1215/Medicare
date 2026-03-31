@@ -732,6 +732,10 @@ function sortSlotsForDisplay(slots = []) {
                       src={svc.image}
                       alt={svc.name}
                       className={s.serviceImage}
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = "https://images.unsplash.com/photo-1576091160550-2173bdd9982a?auto=format&fit=crop&w=400&q=80";
+                      }}
                     />
                   ) : (
                     <div className={s.serviceImagePlaceholder}>
@@ -800,6 +804,10 @@ function sortSlotsForDisplay(slots = []) {
                             src={editForm.imagePreview}
                             alt="preview"
                             className={s.serviceImage}
+                            onError={(e) => {
+                              e.currentTarget.onerror = null;
+                              e.currentTarget.src = "https://images.unsplash.com/photo-1576091160550-2173bdd9982a?auto=format&fit=crop&w=400&q=80";
+                            }}
                           />
                         ) : (
                           <div className={s.serviceImagePlaceholder}>
