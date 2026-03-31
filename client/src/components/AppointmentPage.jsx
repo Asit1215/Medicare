@@ -18,7 +18,7 @@ import {
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { Toaster } from "react-hot-toast";
 
-const API_BASE = "https://medicare-server-mu64.onrender.com";
+const API_BASE = window.location.hostname === "localhost" ? "http://localhost:4000" : "https://medicare-server-mu64.onrender.com";
 const API = axios.create({ baseURL: API_BASE });
 
 // Helper function

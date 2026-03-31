@@ -14,7 +14,10 @@ const PORT = 4000;
 const allowedOrigins = [
   "https://medicare-client-0mny.onrender.com",
   "https://medicare-admin-crjd.onrender.com",
-
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "http://localhost:4000",
+  "http://localhost:5174",
 ]
 
 // Middlewares

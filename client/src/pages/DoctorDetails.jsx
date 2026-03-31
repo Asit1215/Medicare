@@ -22,7 +22,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { doctorDetailStyles } from "../assets/dummyStyles";
 
-const API_BASE = "https://medicare-server-mu64.onrender.com";
+const API_BASE = window.location.hostname === "localhost" ? "http://localhost:4000" : "https://medicare-server-mu64.onrender.com";
 //this function will parse date into an obj
 function getScheduleDates(schedule) {
   if (!schedule) return [];

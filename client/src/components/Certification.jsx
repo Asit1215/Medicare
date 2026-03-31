@@ -1,5 +1,6 @@
 import React from "react";
 import { certificationStyles } from "../assets/dummyStyles";
+import { motion } from "framer-motion";
 import C3 from "../assets/C3.png";
 import C1 from "../assets/C1.png";
 import C2 from "../assets/C2.png";
@@ -62,10 +63,28 @@ const Certification = () => {
       </div>
 
       <div className={certificationStyles.contentWrapper}>
-            <div className={certificationStyles.headingContainer}>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className={certificationStyles.headingContainer}
+            >
               <div className={certificationStyles.headingInner}>
-                <div className={certificationStyles.leftLine}></div>
-                <div className={certificationStyles.rightLine}></div>
+                <motion.div 
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className={certificationStyles.leftLine}
+                ></motion.div>
+                <motion.div 
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className={certificationStyles.rightLine}
+                ></motion.div>
                 <h2 className={certificationStyles.title}>
                     <span className={certificationStyles.titleText}>
                         CERTIFIED & EXCELLENCE
@@ -77,15 +96,24 @@ const Certification = () => {
                 Government recognized and internationally accredited healthcare standards
               </p>
 
-              <div className={certificationStyles.badgeContainer}>
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className={certificationStyles.badgeContainer}
+              >
                 <div className={certificationStyles.badgeDot}></div>
                 <span className={certificationStyles.badgeText}>
                     OFFICIALLY CERTIFIED
                 </span>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <div className={certificationStyles.logosContainer}>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className={certificationStyles.logosContainer}
+            >
                 <div className={certificationStyles.logosInner}>
                     <div className={certificationStyles.logosFlexContainer}>
                         <div className={certificationStyles.logosMarquee}>
@@ -102,7 +130,7 @@ const Certification = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
       </div>
       <style>{certificationStyles.animationStyles}</style>
     </div>
@@ -110,3 +138,4 @@ const Certification = () => {
 };
 
 export default Certification;
+

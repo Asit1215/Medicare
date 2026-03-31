@@ -1,6 +1,6 @@
 import React from 'react'
 import DoctorNavbar from './DoctorNavbar'
-import EditProfilePage from '../componets/EditProfilePage'
+import EditProfilePage from '../components/EditProfilePage'
 
 const EditProfile = () => {
   return (

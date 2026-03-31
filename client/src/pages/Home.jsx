@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from '../componets/Navbar'
-import Banner from '../componets/Banner'
-import Certification from '../componets/Certification'
-import HomeDoctors from '../componets/HomeDoctors'
-import Testimonial from '../componets/Testimonial'
-import Footer from '../componets/Footer'
+import Navbar from '../components/Navbar'
+import Banner from '../components/Banner'
+import Certification from '../components/Certification'
+import HomeDoctors from '../components/HomeDoctors'
+import Testimonial from '../components/Testimonial'
+import Footer from '../components/Footer'
 
 const Home = () => {
   return (

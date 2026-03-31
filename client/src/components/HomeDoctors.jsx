@@ -2,12 +2,36 @@ import React, { useEffect, useState } from "react";
 import { homeDoctorsStyles, iconSize } from "../assets/dummyStyles";
 import { Link } from "react-router-dom";
 import { ChevronRight, Medal, MousePointer2Off } from "lucide-react";
+import { motion } from "framer-motion";
 
-const HomeDoctors = ({ previewCount = 8 }) => {
-  const API_BASE = "https://medicare-server-mu64.onrender.com";
+const HomeDoctors = ({ previewCount = 12 }) => {
+  const API_BASE = window.location.hostname === "localhost" ? "http://localhost:4000" : "https://medicare-server-mu64.onrender.com";
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  // Variants for animation
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
 
   //to fetch doctors from the service side
   useEffect(() => {
@@ -73,15 +97,21 @@ const HomeDoctors = ({ previewCount = 8 }) => {
   return (
     <section className={homeDoctorsStyles.section}>
       <div className={homeDoctorsStyles.container}>
-        <div className={homeDoctorsStyles.header}>
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className={homeDoctorsStyles.header}
+        >
           <h1 className={homeDoctorsStyles.title}>
             Our{" "}
             <span className={homeDoctorsStyles.titleSpan}>Medical Team</span>
           </h1>
           <p className={homeDoctorsStyles.subtitle}>
-            Book appointment quickly with our verified specialiests
+            Book appointment quickly with our verified specialists
           </p>
-        </div>
+        </motion.div>
 
         {/* Error */}
         {error ? (
@@ -136,7 +166,7 @@ const HomeDoctors = ({ previewCount = 8 }) => {
             </button>
           </div>
         ) : null}
-        {/* So here it will refetch the api to get response */}
+
         {loading ? (
           <div className={homeDoctorsStyles.skeletonGrid}>
             {Array.from({ length: previewCount }).map((_, i) => (
@@ -151,10 +181,18 @@ const HomeDoctors = ({ previewCount = 8 }) => {
             ))}
           </div>
         ) : (
-          <div className={homeDoctorsStyles.doctorsGrid}>
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className={homeDoctorsStyles.doctorsGrid}
+          >
             {preview.map((doctor) => (
-              <article
+              <motion.article
                 key={doctor.id || doctor.name}
+                variants={cardVariants}
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
                 className={homeDoctorsStyles.article}
               >
                 {doctor.available  ? (
@@ -166,13 +204,13 @@ const HomeDoctors = ({ previewCount = 8 }) => {
                   >
                     <div className={homeDoctorsStyles.imageContainerAvailable}>
                       <img
-                        src={doctor.image || "/placeholder-doctor.jpg"}
+                        src={doctor.image || "https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&w=400&q=80"}
                         alt={doctor.name}
                         loading="lazy"
                         className={homeDoctorsStyles.image}
                         onError={(e) => {
                           e.currentTarget.onerror = null;
-                          e.currentTarget.src = "/placeholder-doctor.jpg";
+                          e.currentTarget.src = "https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&w=400&q=80";
                         }}
                       />
                     </div>
@@ -182,13 +220,13 @@ const HomeDoctors = ({ previewCount = 8 }) => {
                     className={homeDoctorsStyles.imageContainerUnavailable}
                   >
                      <img
-                      src={doctor.image || "/placeholder-doctor.jpg"}
+                      src={doctor.image || "https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&w=400&q=80"}
                       alt={doctor.name}
                       loading="lazy"
                       className={homeDoctorsStyles.image}
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = "/placeholder-doctor.jpg";
+                        e.currentTarget.src = "https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&w=400&q=80";
                       }}
                     />
                     <div className={homeDoctorsStyles.unavailableBadge}>
@@ -231,9 +269,9 @@ const HomeDoctors = ({ previewCount = 8 }) => {
                     </div>
                 </div>
                 </div>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
       <style>{homeDoctorsStyles.customCSS}</style>
@@ -242,3 +280,4 @@ const HomeDoctors = ({ previewCount = 8 }) => {
 };
 
 export default HomeDoctors;
+

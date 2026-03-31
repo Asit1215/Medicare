@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { testimonialStyles } from "../assets/dummyStyles";
 import { Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Testimonial = () => {
   const scrollRefLeft = useRef(null);
@@ -35,7 +36,7 @@ const Testimonial = () => {
       rating: 4,
       text: "This platform has streamlined our clinic operations significantly. Patient management is much more organized.",
       image:
-        "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80",
       type: "doctor",
     },
     {
@@ -45,7 +46,7 @@ const Testimonial = () => {
       rating: 5,
       text: "Booking appointments online 24/7 is a game-changer. The confirmation system gives me peace of mind.",
       image:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
       type: "patient",
     },
     {
@@ -55,7 +56,7 @@ const Testimonial = () => {
       rating: 5,
       text: "Excellent platform for managing appointments. Automated reminders reduce no-shows dramatically.",
       image:
-        "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&w=400&q=80",
       type: "doctor",
     },
     {
@@ -65,7 +66,7 @@ const Testimonial = () => {
       rating: 5,
       text: "The wait time has reduced significantly since using this platform. Very convenient and user-friendly!",
       image:
-        "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
       type: "patient",
     },
   ];
@@ -116,7 +117,8 @@ const Testimonial = () => {
     ));
 
   const TestimonialCard = ({ testimonial, direction }) => (
-    <div
+    <motion.div
+      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
       className={`${testimonialStyles.testimonialCard} ${
         direction === "left"
           ? testimonialStyles.leftCardBorder
@@ -156,17 +158,24 @@ const Testimonial = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
+
   return (
     <div className={testimonialStyles.container}>
-      <div className={testimonialStyles.headerContainer}>
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className={testimonialStyles.headerContainer}
+      >
         <h2 className={testimonialStyles.title}>Voices of Trust</h2>
         <p className={testimonialStyles.subtitle}>
           Real stories from doctors and patients sharing their positive
-          experience with out healthcare plateform
+          experience with our healthcare platform
         </p>
-      </div>
+      </motion.div>
 
       <div
         className={testimonialStyles.grid}
@@ -174,7 +183,7 @@ const Testimonial = () => {
         onMouseLeave={() => setIsPaused(false)}
       >
         <div
-          className={`${testimonialStyles.columnContainer} ${testimonialStyles.leftColumnBorder} ${testimonialStyles.leftColumnBorder}`}
+          className={`${testimonialStyles.columnContainer} ${testimonialStyles.leftColumnBorder}`}
         >
           <div
             className={`${testimonialStyles.columnHeader} ${testimonialStyles.leftColumnHeader}`}
@@ -207,16 +216,19 @@ const Testimonial = () => {
             🧑‍💼 Patients
           </div>
 
-          <div ref={scrollRefRight} className={testimonialStyles.scrollContainer} onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => setIsPaused(false)}
-            >
-                {[...rightTestimonials, ...rightTestimonials].map((t, i) => (
-                    <TestimonialCard
+          <div 
+            ref={scrollRefRight} 
+            className={testimonialStyles.scrollContainer} 
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+          >
+            {[...rightTestimonials, ...rightTestimonials].map((t, i) => (
+              <TestimonialCard
                 key={`R-${i}`}
                 testimonial={t}
                 direction="Right"
               />
-                ))}
+            ))}
           </div>
         </div>
       </div>
@@ -226,3 +238,4 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
+

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ChevronsRight, MousePointer2Off } from 'lucide-react';
 
 // Helper function
-const PlaceholderImg = "/placeholder-service.jpg";
+const PlaceholderImg = "https://images.unsplash.com/photo-1576091160550-2173bdd9982a?auto=format&fit=crop&w=400&q=80";
 
 const ServiceCard = ({ service }) => {
   const hasSrcSet =
@@ -108,7 +108,7 @@ const ServiceCard = ({ service }) => {
 
 const ServicePage = ({previewCount= 9999}) => {
 
-      const API_BASE = "https://medicare-server-mu64.onrender.com";
+      const API_BASE = window.location.hostname === "localhost" ? "http://localhost:4000" : "https://medicare-server-mu64.onrender.com";
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");

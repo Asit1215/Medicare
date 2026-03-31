@@ -167,7 +167,7 @@ export const commonStyles = {
 
 export const certificationStyles = {
   // Container styles
-  container: "relative py-6 bg-linear-to-brfrom-emerald-50 via-green-50 to-teal-50 overflow-hidden",
+  container: "relative py-6 bg-linear-to-br from-emerald-50 via-green-50 to-teal-50 overflow-hidden",
   
   // Background styles
   backgroundGrid: "absolute inset-0",

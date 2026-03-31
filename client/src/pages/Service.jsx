@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../componets/Navbar'
-import Footer from '../componets/Footer'
-import ServicePage from '../componets/ServicePage'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import ServicePage from '../components/ServicePage'
 
 const Service = () => {
   return (

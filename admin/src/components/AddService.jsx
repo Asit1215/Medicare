@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 const AddService = ({ serviceId }) => {
-  const API_BASE = "https://medicare-server-mu64.onrender.com";
+  const API_BASE = window.location.hostname === "localhost" ? "http://localhost:4000" : "https://medicare-server-mu64.onrender.com";
 
   const fileRef = useRef(null);
   const [imagePreview, setImagePreview] = useState(null);

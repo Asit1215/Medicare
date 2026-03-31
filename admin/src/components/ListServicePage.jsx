@@ -13,7 +13,7 @@ import {
 import { serviceListStyles as s } from "../assets/dummyStyles";
 
 export default function ListServicePage() {
-  const API_BASE = "https://medicare-server-mu64.onrender.com";
+  const API_BASE = window.location.hostname === "localhost" ? "http://localhost:4000" : "https://medicare-server-mu64.onrender.com";
 
   const [services, setServices] = useState([]);
   const [openDetails, setOpenDetails] = useState({});
