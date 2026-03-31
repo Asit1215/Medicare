@@ -382,10 +382,10 @@ export const footerStyles = {
   
   // Main content
   mainContent: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative z-10",
-  gridContainer: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-12 mb-10 text-center lg:text-left",
+  gridContainer: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10 text-center sm:text-left",
   
   // Company info
-  companySection: "lg:col-span-1 flex flex-col items-center lg:items-start",
+  companySection: "sm:col-span-1 flex flex-col items-center sm:items-start",
   logoContainer: "flex items-center space-x-5 mb-6 transform transition-transform duration-500",
   logoWrapper: "relative",
   logoImageContainer: "relative w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 p-1 transform transition-transform duration-500",
@@ -396,7 +396,7 @@ export const footerStyles = {
   
   // Contact info
   contactContainer: "space-y-3 w-full md:w-auto",
-  contactItem: "flex items-center justify-center md:justify-start space-x-4 text-emerald-700 hover:text-emerald-800 transition-all duration-300 group transform hover:translate-x-0 md:hover:translate-x-2",
+  contactItem: "flex items-center justify-center sm:justify-start space-x-4 text-emerald-700 hover:text-emerald-800 transition-all duration-300 group transform hover:translate-x-0 sm:hover:translate-x-2",
   contactIconWrapper: "w-9 h-9 md:w-10 md:h-10 bg-emerald-100 rounded-full flex items-center justify-center transition-colors duration-300 shadow-sm",
   contactIcon: "w-4 h-4 text-emerald-600",
   contactText: "text-sm font-medium",
@@ -408,18 +408,18 @@ export const footerStyles = {
   linkItem: "w-full",
   
   // Quick Links
-  quickLink: "flex items-center justify-center md:justify-start text-emerald-700 hover:text-emerald-800 transition-all duration-300 group text-sm md:text-base font-medium py-2 px-3 rounded-lg hover:bg-emerald-50 border border-transparent hover:border-emerald-200",
+  quickLink: "flex items-center justify-center sm:justify-start text-emerald-700 hover:text-emerald-800 transition-all duration-300 group text-sm md:text-base font-medium py-2 px-3 rounded-lg hover:bg-emerald-50 border border-transparent hover:border-emerald-200",
   quickLinkIconWrapper: "w-7 h-7 bg-emerald-100 rounded-full flex items-center justify-center mr-3",
   quickLinkIcon: "w-3 h-3 text-emerald-600",
   
   // Services
-  serviceLink: "flex items-center justify-center md:justify-start text-emerald-700 hover:text-green-700 transition-all duration-300 group text-sm md:text-base font-medium py-2 px-3 rounded-lg hover:bg-green-50 border border-transparent hover:border-green-200",
+  serviceLink: "flex items-center justify-center sm:justify-start text-emerald-700 hover:text-green-700 transition-all duration-300 group text-sm md:text-base font-medium py-2 px-3 rounded-lg hover:bg-green-50 border border-transparent hover:border-green-200",
   serviceIcon: "w-3 h-3 bg-green-500 rounded-full mr-3",
   
   // Newsletter & Social
-  newsletterSection: "lg:col-span-1 flex flex-col items-center lg:items-start",
+  newsletterSection: "sm:col-span-1 flex flex-col items-center sm:items-start",
   newsletterTitle: "text-lg md:text-xl font-bold text-emerald-800 mb-4",
-  newsletterDescription: "text-emerald-700 text-sm md:text-base mb-4 font-light text-center lg:text-left",
+  newsletterDescription: "text-emerald-700 text-sm md:text-base mb-4 font-light text-center sm:text-left",
   newsletterForm: "w-full max-w-md",
   
   // Mobile newsletter
@@ -436,7 +436,7 @@ export const footerStyles = {
   desktopButtonText: "font-semibold",
   
   // Social links
-  socialContainer: "flex gap-3 justify-center lg:justify-start mt-6",
+  socialContainer: "flex gap-3 justify-center sm:justify-start mt-6",
   socialLink: "relative group",
   socialIconBackground: "absolute inset-0 bg-linear-to-r from-emerald-400 to-green-500 rounded-full transform scale-0 group-hover:scale-110 transition-transform duration-300 hidden lg:block",
   socialIcon: "w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 p-2 text-emerald-700 cursor-pointer transform hover:scale-110 hover:rotate-6 transition-all duration-300 relative z-10 bg-white rounded-2xl shadow-lg border-2 border-emerald-100",
@@ -449,9 +449,9 @@ export const footerStyles = {
   youtubeColor: "hover:text-red-600",
   
   // Bottom section
-  bottomSection: "flex flex-col md:flex-row justify-center lg:justify-between items-center gap-4 md:gap-6 border-t border-emerald-100 pt-6",
-  copyright: "text-emerald-700 text-sm md:text-base font-medium flex items-center gap-2",
-  designerText: "text-emerald-700 text-sm md:text-base font-medium flex items-center gap-2",
+  bottomSection: "flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4 md:gap-6 border-t border-emerald-100 pt-6",
+  copyright: "text-emerald-700 text-sm md:text-base font-medium flex flex-wrap justify-center items-center gap-2 text-center",
+  designerText: "text-emerald-700 text-sm md:text-base font-medium flex flex-wrap justify-center items-center gap-2 text-center",
   designerLink: "font-bold text-emerald-500 hover:text-purple-700 transition-colors duration-300",
   
   // Animation keyframes for floating icons (to be added via style tag)
